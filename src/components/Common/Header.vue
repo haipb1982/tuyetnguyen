@@ -1,11 +1,9 @@
 <template>
-  
+  <div>Header here</div>
 </template>
 
 <script>
-export default {
 
-}
 </script>
 
 <style>
