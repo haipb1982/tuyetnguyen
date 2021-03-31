@@ -1,0 +1,27 @@
+{
+    "product": {
+        "id": "43",
+        "store": {
+            "id": "3",
+            "name": "CovatTuyetNguyen"
+        },
+        "category": {
+            "id": "8",
+            "name": "Cổ vật"
+        },
+        "name": "Ấm dáng bổ ô thời Lý",
+        "code": "77_2",
+        "codeParent": "77_2",
+        "image": "http://arcatalog.vn/3dart/admin/runtime/uploads/tn/tn_product/a3e722eb549cd43c19574330405924e4.jpg",
+        "price": "0",
+        "color": "0",
+        "size": "Đang cập nhật.",
+        "unit": null,
+        "stock": "1",
+        "year_issued": "Thời Lý",
+        "feature": "Đang cập nhật.",
+        "description": "<p>http://3dartvn.com/submission/3d_demo/CoVatTuyetNguyen/TNg77_AmboO/index.html</p>",
+        "total_sell": null,
+        "num_favorite": 1
+    }
+}
