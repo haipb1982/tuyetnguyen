@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Detail from "../views/Detail.vue";
 import Introduce from "../views/Introduce.vue";
 import Account from "../views/Account.vue";
 import Collection from "../views/Collection.vue";
@@ -28,6 +29,11 @@ const routes = [{
         path: "/bosuutap",
         name: "collection",
         component: Collection,
+    },
+    {
+        path: "/detail/:id",
+        name: "detail",
+        component: Detail,
     },
     {
         path: "/yeuthich",

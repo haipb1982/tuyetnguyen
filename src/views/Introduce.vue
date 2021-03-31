@@ -2,9 +2,15 @@
   <div>
     <div>
       {{ introduce }}
+      
+
     </div>
-    <div>
-      {{ detail }}
+
+
+    <div        v-for="(image, idx) in detail"
+              :key="idx"
+            >
+     <img :src="image">
     </div>
   </div>
 </template>
@@ -23,16 +29,16 @@ export default {
   methods: {
     async fetch() {
       let res = await this.$store.dispatch("HOME_PAGE_LIST");
-      this.introduce = res;
+      this.introduce = res.obj_list[0].text;
       if (res) {
         console.log(res.obj_list[0].id);
         let id = res.obj_list[0].id;
-        this.detail(id);
+        this.getdetail(id);
       }
     },
-    async detail(id) {
-      let detail = await this.$store.dispatch("HOME_PAGE_LIST_DETAIL", id);
-      this.detail = detail;
+    async getdetail(id) {
+      let res = await this.$store.dispatch("HOME_PAGE_DETAIL", id);
+      this.detail = res.homepage.images;
     },
   },
 };

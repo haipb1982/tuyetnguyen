@@ -1,33 +1,25 @@
 <template>
-  <div>Trang Chu</div>
+  <div>Trang Chu :
+    
+
+    <Introduce />
+
+    <hr>
+
+    <Collection />
+  </div>
 </template>
 
 <script>
-
-import { mapActions, mapGetters, mapState } from "vuex";
+import Introduce from "./Introduce";
+import Collection from "./Collection";
 
 export default {
- data: () => ({
-    description: "",
-    homelist:[]
-  }),
-    computed: {
-    ...mapGetters({
-      description: "messages",
-    }),
-    ...mapState({
-      loading: (state) => state.intent.status === "loading",
-    }),
+  components: {
+    Introduce,
+    Collection,
   },
-  methods: {
-    ...mapActions({
-      sendMsg: "INTENT_REQUEST",
-    }),
-  
-  }
-
-}
-
+};
 </script>
 
 <style>
