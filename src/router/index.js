@@ -6,6 +6,8 @@ import Introduce from "../views/Introduce.vue";
 import Account from "../views/Account.vue";
 import Collection from "../views/Collection.vue";
 import Favorite from "../views/Favorite.vue";
+import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
 
 
 Vue.use(VueRouter);
@@ -39,6 +41,16 @@ const routes = [{
         path: "/yeuthich",
         name: "Favorite",
         component: Favorite,
+    },
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
+    },
+    {
+        path: "/dangki",
+        name: "Register",
+        component: Register,
     },
 ];
 
