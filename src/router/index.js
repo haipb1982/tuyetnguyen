@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Detail from "../views/Detail.vue";
+import Details from "../views/Details.vue";
 import Introduce from "../views/Introduce.vue";
 import Account from "../views/Account.vue";
 import Collection from "../views/Collection.vue";
@@ -31,9 +31,9 @@ const routes = [{
         component: Collection,
     },
     {
-        path: "/detail/:id",
-        name: "detail",
-        component: Detail,
+        path: "/details/:id",
+        name: "details",
+        component: Details,
     },
     {
         path: "/yeuthich",

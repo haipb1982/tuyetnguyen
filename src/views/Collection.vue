@@ -3,11 +3,12 @@
     <!-- <div>{{ product_list }}</div> -->
 
     <div  v-for="(product, idx) in product_list" :key="idx">
-       <a :href="`./detail/` + product.id">
+      <router-link :to="{ name: 'details', params: { id: product.id }}">
+       
           <img  style="width: 100px; " :src="product.image" />
 
           <p :v-bind="product.image"></p>
-        </a>
+        </router-link>
     </div>
   </div>
 </template>
