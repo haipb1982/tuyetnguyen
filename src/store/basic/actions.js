@@ -111,7 +111,7 @@ export default {
         }
     },
 
-    async FAVORITE_LIST({ commit }) {
+    async FAVORITE_LIST({ commit },data) {
         try {
             let response = await getDataDetail(`list_favorite_product/${data}`);
             return response;
