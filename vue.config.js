@@ -2,5 +2,5 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    publicPath: '/tuyetnguyen/',
+    // publicPath: '/tuyetnguyen/',
 };

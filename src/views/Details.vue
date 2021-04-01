@@ -13,7 +13,8 @@
 				</div>
 				<div class="content">
 					<h5 class="title-block">THÔNG TIN CỔ VẬT:</h5>
-					<p>{{ productDetail.product.description }}</p>
+          <iframe class="responsive-iframe" id="iframeTN" :src="productDetail.product.description.replace(/(<([^>]+)>)/gi, '')" title="" allow="geolocation; microphone;camera;midi;encrypted-media "></iframe>
+					<p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p>
 				</div>
 			</div>
 		</div>
@@ -37,6 +38,7 @@ export default {
 			let res = await this.$store.dispatch("PRODUCT_DETAIL", id);
 			console.log(res);
 			this.productDetail = res;
+      this.$refs[iframeTN].src = productDetail.product.description.replace(/(<([^>]+)>)/gi, '');
 		},
 	},
 };
@@ -113,4 +115,11 @@ export default {
 .product-detail .content p:nth-child(2) {
   text-indent: 20px;
 }
+
+.responsive-iframe {
+            padding: 20px;
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
 </style>
