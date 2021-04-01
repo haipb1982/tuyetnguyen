@@ -48,7 +48,7 @@ const routes = [{
         component: Login,
     },
     {
-        path: "/dangki",
+        path: "/dangky",
         name: "Register",
         component: Register,
     },
