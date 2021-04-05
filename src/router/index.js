@@ -7,6 +7,7 @@ import Account from "../views/Account.vue";
 import Collection from "../views/Collection.vue";
 import Favorite from "../views/Favorite.vue";
 import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
 import Register from "../views/Register.vue";
 
 
@@ -46,6 +47,11 @@ const routes = [{
         path: "/login",
         name: "Login",
         component: Login,
+    },
+    {
+        path: "/logout",
+        name: "Logout",
+        component: Logout,
     },
     {
         path: "/dangky",

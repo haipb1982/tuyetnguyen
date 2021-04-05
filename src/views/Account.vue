@@ -1,136 +1,40 @@
 <template>
-	<div class="bg-hv account login">
-		<div class="container">
-			<div class="account-box">
-				<div class="login-head">
-					<img src="../assets/logo-v.png" alt="" class="logo" />
-				</div>
-				<form action="" class="login-form account-form">
-					<div class="form-group">
-						<div class="form-icon">
-							<i class="fas fa-user"></i>
-						</div>
-						<div class="form-input">
-							<input
-								type="text"
-								class="form-control"
-								placeholder="Tên đăng nhập hoặc email"
-							/>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="form-icon">
-							<i class="fas fa-lock"></i>
-						</div>
-						<div class="form-input">
-							<input
-								type="password"
-								class="form-control"
-								placeholder="Mật khẩu"
-							/>
-						</div>
-					</div>
-					<div class="row between aic">
-						<div class="col-6">
-							<div class="form-check">
-								<div class="form-check form-check-inline">
-									<input
-										class="form-check-input checkbox"
-										id="remember"
-										name="remember"
-										type="checkbox"
-										value="remember"
-									/>
-									<label class="form-check-label" for="remember">
-										Ghi nhớ mật khẩu
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="col-6 text-right">
-							<a href="#" class="a-link lostPw">Quên mật khẩu?</a>
-						</div>
-					</div>
-					<div class="form-group btn-box d-flex jcc">
-						<button class="btn btn-submit m-auto">
-							<span>ĐĂNG NHẬP</span>
-						</button>
-					</div>
-				</form>
-				<div class="signUp">
-					<router-link to="/dangky" class="a-link">
-						TẠO TÀI KHOẢN MỚI
-					</router-link>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="bg-hv account login">
+    <div class="container">
+      <ul class="nav-account">
+        <li><i class="fa fa-user" aria-hidden="true"></i> User name</li>
+        <li><router-link to="/yeuthich" class="nav-link">
+          <i class="fa fa-heart" aria-hidden="true"></i> Cổ Vật - Cổ Phục Yêu
+          thích</router-link>
+        </li>
+        <li><i class="fa fa-bell-o" aria-hidden="true"></i> Thông báo</li>
+        <li><router-link to="/logout" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</router-link></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			product: null,
-			productDetail: null,
-			page: 1,
-		};
-	},
-	created() {
-		this.fetch();
-	},
-	methods: {
-		async fetch() {
-			let data = {
-				username: "",
-				password: "",
-				deviceid: 12313213,
-			};
-			let res = await this.$store.dispatch("POST_LOGIN", data);
-			console.log(res);
-		},
-	},
-};
+export default {};
 </script>
 
-<style>
-.login-form {
-	max-width: 290px;
+<style scoped>
+.nav-account {
+	margin: auto;
+	padding:30px;
+	background: #D99751;
+	border-radius:10px;
+	width: 30%;
+	text-align: left;	
 }
 
-.login .account-box {
-	padding: 50px 25px 80px;
+.nav-account li{
+	padding:10px;
+	font-size:15px;
 }
 
-.login-head {
-	width: 100%;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-
-.login .form-input {
-	width: 290px;
-	height: 47px;
-}
-
-.login .form-control {
-	padding-left: 50px;
-}
-
-.login label,
-.login a {
-	font-size: 14px;
+i {
+	font-size: 30px;
 	color: #fff;
-}
-
-.login .lostPw {
-	line-height: 21px;
-	display: block;
 }
 </style>

@@ -7,7 +7,6 @@
           :size="100"
           :color="'#E9B975'"
           style="margin:auto;padding:20px"
-          v-if:="loading"
      />
     <Footer />
   </div>

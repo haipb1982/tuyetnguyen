@@ -1,51 +1,88 @@
 <template>
-	<div class="product-detail">
-		<div class="container">
-			<div class="breadcrumb">
-				<a href="./bosuutap" class="btn btn-back"
-					><i class="fas fa-chevron-left"></i
-				></a>
-				<h3 class="title-product">{{ productDetail.product.name }}</h3>
-			</div>
-			<div class="main-content">
-				<div class="feature">
-					<img :src="productDetail.product.image" alt="" />
-				</div>
-				<div class="content">
-					<h5 class="title-block">THÔNG TIN CỔ VẬT:</h5>
-          <iframe class="responsive-iframe" id="iframeTN" :src="productDetail.product.description.replace(/(<([^>]+)>)/gi, '')" title="" allow="geolocation; microphone;camera;midi;encrypted-media "></iframe>
-					<p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="product-detail">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="./bosuutap" class="btn btn-back"
+          ><i class="fas fa-chevron-left"></i
+        ></a>
+        <h3 class="title-product">{{ productDetail.product.name }}</h3>
+      </div>
+     
+
+      <div class="main-content">
+        <div class="feature" style="width: 50%; margin: auto">
+          <img :src="productDetail.product.image" alt="" />
+        </div>
+         <div class="actions">
+           
+           <a href="#" 
+          ><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+        <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
+          ><i class="fa fa-heart" aria-hidden="true"></i
+        ></a>
+      </div>
+        <div class="feature" style="width: 80%; margin: auto">
+          <h5 class="title-block">THÔNG TIN CỔ VẬT:</h5>
+          <iframe
+            class="responsive-iframe"
+            id="iframeTN"
+            :src="
+              productDetail.product.description.replace(/(<([^>]+)>)/gi, '')
+            "
+            title=""
+            allow="geolocation; microphone;camera;midi;encrypted-media "
+          ></iframe>
+        </div>
+
+        <div class="content">
+          <!-- <p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	props: ["id"],
-	data() {
-		return {
-			productDetail: null,
-		};
-	},
-	created() {
-		this.fetch(this.$route.params["id"]);
-	},
-	methods: {
-		async fetch(id) {
-			// alert(id);
-			let res = await this.$store.dispatch("PRODUCT_DETAIL", id);
-			console.log(res);
-			this.productDetail = res;
-      this.$refs[iframeTN].src = productDetail.product.description.replace(/(<([^>]+)>)/gi, '');
-		},
-	},
+  props: ["id"],
+  data() {
+    return {
+      productDetail: null,
+    };
+  },
+  created() {
+    this.fetch(this.$route.params["id"]);
+  },
+  methods: {
+    async fetch(id) {
+      // alert(id);
+      let res = await this.$store.dispatch("PRODUCT_DETAIL", id);
+      console.log(res);
+      this.productDetail = res;
+      this.$refs[iframeTN].src = productDetail.product.description.replace(
+        /(<([^>]+)>)/gi,
+        ""
+      );
+    },
+    async addFavorite(id) {
+      let data = new FormData();
+      data.append("product", id);
+
+      await this.$store.dispatch("ADD_FAVORITE", data).then((res) => {
+        console.log(res);
+        if (res) {
+          alert("Successful!");
+        } else {
+          alert("Add failed!");
+        }
+      });
+    },
+  },
 };
 </script>
 
 <style>
-
 .product-detail .breadcrumb {
   position: relative;
   margin-top: 40px;
@@ -59,8 +96,8 @@ export default {
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   line-height: 1;
   width: 40px;
   height: 40px;
@@ -71,12 +108,12 @@ export default {
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .product-detail .breadcrumb .title-product {
@@ -88,7 +125,7 @@ export default {
 
 .product-detail .feature {
   -webkit-box-shadow: 0 4px 9px rgba(0, 0, 0, 0.575);
-          box-shadow: 0 4px 9px rgba(0, 0, 0, 0.575);
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.575);
   margin-bottom: 40px;
 }
 
@@ -117,9 +154,21 @@ export default {
 }
 
 .responsive-iframe {
-            padding: 20px;
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
+  padding: 20px;
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+.actions {
+  display: inline-block;
+  margin: auto;
+  padding: 10px;
+  background: #d99751;
+  border-radius: 10px;
+  width: 50px;
+  text-align: center;
+  font-size:20px;
+  color:#fff;
+}
 </style>

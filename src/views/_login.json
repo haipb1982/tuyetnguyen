@@ -1,0 +1,27 @@
+{
+    "code": 200,
+    "errors": null,
+    "data": {
+        "token": "4af3ffa6dc5d0cf7c6dcf2c8b6838c0f",
+        "member": {
+            "id": "317",
+            "username": "Haipb",
+            "avatar": null,
+            "gender": null,
+            "firstname": null,
+            "lastname": "Phan B\u00e1 H\u1ea3i",
+            "address": null,
+            "phone": "",
+            "email": "haipb1982@gmail.com",
+            "birthday": null,
+            "point": null,
+            "date_created": "1615793497",
+            "user_created": "0",
+            "date_edited": null,
+            "user_edited": null,
+            "require_change_password": "0",
+            "openid": null,
+            "open_channel": null
+        }
+    }
+}
