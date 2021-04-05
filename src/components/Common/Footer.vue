@@ -1,5 +1,10 @@
 <template>
+<div>
+    <hr>
+
     <div>Footer here</div>
+    
+</div>
 </template>
 
 <script>

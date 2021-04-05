@@ -12,6 +12,7 @@
 						</div>
 						<div class="form-input">
 							<input
+								v-model="idText"
 								type="text"
 								class="form-control"
 								placeholder="Tên đăng nhập hoặc email"
@@ -24,6 +25,7 @@
 						</div>
 						<div class="form-input">
 							<input
+								v-model="pwdText"
 								type="password"
 								class="form-control"
 								placeholder="Mật khẩu"
@@ -66,7 +68,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+	data: () => ({
+		idText: '',
+		pwdText:''
+	}),
+	 methods: {
+	...mapActions({
+      post_login: "POST_LOGIN",
+    }),
+	async login(){
+		post_login(this.idText,this.pwdText)
+	}
+	 }
+};
 </script>
 
 <style>
