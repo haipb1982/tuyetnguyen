@@ -1,176 +1,178 @@
 <template>
-	<div class="bg-hv account login">
-		<div class="container">
-			<div class="account-box">
-				<div class="login-head">
-					<img src="../assets/logo-v.png" alt="" class="logo" />
-				</div>
-				<form action="" class="login-form account-form">
-					<div class="form-group">
-						<div class="form-icon">
-							<i class="fas fa-user"></i>
-						</div>
-						<div class="form-input">
-							<input
-								v-model="idText"
-								type="text"
-								class="form-control"
-								placeholder="Tên đăng nhập hoặc email"
-							/>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="form-icon">
-							<i class="fas fa-lock"></i>
-						</div>
-						<div class="form-input">
-							<input
-								v-model="pwdText"
-								type="password"
-								class="form-control"
-								placeholder="Mật khẩu"
-							/>
-						</div>
-					</div>
-					<div class="row between aic">
-						<div class="col-6">
-							<div class="form-check">
-								<div class="form-check form-check-inline">
-									<input
-										class="form-check-input checkbox"
-										id="remember"
-										name="remember"
-										type="checkbox"
-										value="remember"
-									/>
-									<label class="form-check-label" for="remember">
-										Ghi nhớ mật khẩu
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="col-6 text-right">
-							<a href="#" class="a-link lostPw">Quên mật khẩu?</a>
-						</div>
-					</div>
-					<div class="form-group btn-box d-flex jcc">
-						<button class="btn btn-submit m-auto">
-							<span>ĐĂNG NHẬP</span>
-						</button>
-					</div>
-				</form>
-				<div class="signUp">
-						<router-link to="/dangky" class="a-link">TẠO TÀI KHOẢN MỚI</router-link>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="bg-hv account login">
+    <div class="container">
+      <div class="account-box">
+        <div class="login-head">
+          <img src="../assets/logo-v.png" alt="" class="logo" />
+        </div>
+        <div class="login-form account-form">
+          <div class="form-group">
+            <div class="form-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="form-input">
+              <input
+                v-model="input.username"
+                type="text"
+                class="form-control"
+                placeholder="Tên đăng nhập hoặc email"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="form-input">
+              <input
+                v-model="input.password"
+                type="password"
+                class="form-control"
+                placeholder="Mật khẩu"
+              />
+            </div>
+          </div>
+          <div class="row between aic">
+            <div class="col-6">
+              <div class="form-check">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input checkbox"
+                    id="remember"
+                    name="remember"
+                    type="checkbox"
+                    value="remember"
+                  />
+                  <label class="form-check-label" for="remember">
+                    Ghi nhớ mật khẩu
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 text-right">
+              <a href="https://arcatalog.vn/3dart/admin/tn/account/forgot_pass"  target="_blank" class="a-link lostPw">Quên mật khẩu?</a>
+            </div>
+          </div>
+          <div class="form-group btn-box d-flex jcc">
+            <!-- <button
+              class="btn btn-submit m-auto"
+              type="button"
+              v-on:click="login()"
+            >
+              <span>ĐĂNG NHẬP</span>
+            </button> -->
+
+            <a href="#" class="btn btn-submit m-auto" @click.prevent="login()"
+              >ĐĂNG NHẬP</a
+            >
+          </div>
+        </div>
+        <div class="signUp">
+          <a href="https://arcatalog.vn/3dart/admin/tn/registry" target="_blank" class="a-link">
+            TẠO TÀI KHOẢN MỚI
+          <a>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-	data: () => ({
-		idText: '',
-		pwdText:''
-	}),
-	 methods: {
-	...mapActions({
-      post_login: "POST_LOGIN",
-    }),
-	async login(){
-		post_login(this.idText,this.pwdText)
-	}
-	 }
+  data() {
+    return {
+      input: {
+        username: "",
+        password: "",
+      },
+      //   deviceid: Math.floor(
+      //     Math.random() * (10000000000000 - 10000000 + 1) + 100000000
+      //   ),
+      deviceid: "web2020",
+    };
+  },
+  created() {
+    // this.fetch();
+  },
+  methods: {
+    async login() {
+      // alert("login");
+      if (this.input.username != "" && this.input.password != "") {
+        let data = new FormData();
+        data.append("username", this.input.username);
+        data.append("password", this.input.password);
+        data.append("deviceid", this.deviceid);
+
+        localStorage.setItem("deviceid", this.deviceid);
+
+        await this.$store.dispatch("POST_LOGIN", data).then((res) => {
+          console.log(res);
+          if (res) {
+            this.$emit("authenticated", true);
+            this.$router.replace({ name: "secure" });
+            localStorage.setItem("isAuth", true);
+            localStorage.setItem("token", res.token);
+            localStorage.setItem("member", res.member);
+            this.$router.push("/yeuthich");
+          } else {
+            alert("Login failed!");
+          }
+        });
+
+        // if (res.errors) {
+        //   // console.log('Login FAILED!')
+        //   alert("Login failed!");
+        // } else {
+        //   this.$emit("authenticated", true);
+        //   this.$router.replace({ name: "secure" });
+        //   localStorage.setItem("token", response.data.token);
+        //   localStorage.setItem("member", response.data.member);
+        //   this.$router.push("/yeuthich");
+        // }
+      }
+    },
+  },
 };
 </script>
 
 <style>
-.account {
-	padding-top: 82px;
-	height: calc(100vh - 82px);
-}
-
-.account-form {
-	width: 100%;
-}
-
-.account-box {
-	width: 540px;
-	margin: 0 auto;
-	background-color: #eab875;
-	border-radius: 20px;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	position: relative;
-}
-
-.account .logo {
-	max-width: 124px;
-	height: auto;
-	margin-bottom: 64px;
-}
-
-.account .signUp {
-	position: absolute;
-	left: 50%;
-	bottom: 33px;
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	transform: translateX(-50%);
-	display: block;
-}
-
-.account .signUp a {
-	text-transform: uppercase;
-	font-size: 20px;
-}
-
 .login-form {
-	max-width: 290px;
+  max-width: 290px;
 }
 
 .login .account-box {
-	padding: 50px 25px 80px;
+  padding: 50px 25px 80px;
 }
 
 .login-head {
-	width: 100%;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .login .form-input {
-	width: 290px;
-	height: 47px;
+  width: 290px;
+  height: 47px;
 }
 
 .login .form-control {
-	padding-left: 50px;
+  padding-left: 50px;
 }
 
 .login label,
 .login a {
-	font-size: 14px;
-	color: #fff;
+  font-size: 14px;
+  color: #fff;
 }
 
 .login .lostPw {
-	line-height: 21px;
-	display: block;
+  line-height: 21px;
+  display: block;
 }
 </style>

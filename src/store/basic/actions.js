@@ -4,6 +4,7 @@ export default {
 
     async POST_LOGIN({ commit }, data) {
         try {
+            // console.log(data);
             let response = await postData("login", data);
             return response;
         } catch (error) {
@@ -111,9 +112,9 @@ export default {
         }
     },
 
-    async FAVORITE_LIST({ commit },data) {
+    async FAVORITE_LIST({ commit }, data) {
         try {
-            let response = await getDataDetail(`list_favorite_product/${data}`);
+            let response = await getData(`list_favorite_product`);
             return response;
         } catch (error) {
             console.log(console.error);
