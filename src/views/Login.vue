@@ -70,7 +70,7 @@
         <div class="signUp">
           <a href="https://arcatalog.vn/3dart/admin/tn/registry" target="_blank" class="a-link">
             TẠO TÀI KHOẢN MỚI
-          <a>
+          </a>
         </div>
       </div>
     </div>

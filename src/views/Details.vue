@@ -7,21 +7,12 @@
         ></a>
         <h3 class="title-product">{{ productDetail.product.name }}</h3>
       </div>
-     
 
       <div class="main-content">
-        <div class="feature" style="width: 50%; margin: auto">
+        <!-- <div class="feature" style="width: 50%; margin: auto">
           <img :src="productDetail.product.image" alt="" />
-        </div>
-         <div class="actions">
-           
-           <a href="#" 
-          ><i class="fa fa-eye" aria-hidden="true"></i></a>
+        </div> -->
 
-        <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
-          ><i class="fa fa-heart" aria-hidden="true"></i
-        ></a>
-      </div>
         <div class="feature" style="width: 80%; margin: auto">
           <h5 class="title-block">THÔNG TIN CỔ VẬT:</h5>
           <iframe
@@ -35,7 +26,16 @@
           ></iframe>
         </div>
 
+        <div class="actions">
+          <!-- <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
+
+          <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
+            ><i class="fa fa-heart" aria-hidden="true"></i
+          ></a>
+        </div>
+
         <div class="content">
+          <p>{{ productDetail.product.feature }}</p>
           <!-- <p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p> -->
         </div>
       </div>
@@ -48,7 +48,14 @@ export default {
   props: ["id"],
   data() {
     return {
-      productDetail: null,
+      productDetail: {
+        product: {
+          id: "",
+          image: "",
+          description: "",
+          feature: "",
+        },
+      },
     };
   },
   created() {
@@ -57,13 +64,10 @@ export default {
   methods: {
     async fetch(id) {
       // alert(id);
-      let res = await this.$store.dispatch("PRODUCT_DETAIL", id);
-      console.log(res);
-      this.productDetail = res;
-      this.$refs[iframeTN].src = productDetail.product.description.replace(
-        /(<([^>]+)>)/gi,
-        ""
-      );
+      await this.$store.dispatch("PRODUCT_DETAIL", id).then((res) => {
+        console.log(res);
+        this.productDetail = res;
+      });
     },
     async addFavorite(id) {
       let data = new FormData();
@@ -168,7 +172,7 @@ export default {
   border-radius: 10px;
   width: 50px;
   text-align: center;
-  font-size:20px;
-  color:#fff;
+  font-size: 20px;
+  color: #fff;
 }
 </style>

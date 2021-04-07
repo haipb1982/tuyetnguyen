@@ -33,7 +33,8 @@
                 </router-link>
                 <div class="actions">
                   <a href="#" @click.prevent="removeFavorite(product.id)"
-                    ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    ><i class="fa fa-trash-o" aria-hidden="true"></i
+                  ></a>
                 </div>
               </div>
             </div>
@@ -54,7 +55,8 @@ export default {
     };
   },
   created() {
-    this.fetch();
+    if (localStorage.getItem("isAuth")) this.fetch();
+    else this.$router.push("/login");
   },
   methods: {
     async fetch() {
@@ -72,7 +74,7 @@ export default {
         console.log(res);
         if (res) {
           alert("Removed successful!");
-		  this.fetch();
+          this.fetch();
         } else {
           alert("Removed failed!");
         }
