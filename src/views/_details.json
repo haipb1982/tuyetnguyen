@@ -1,0 +1,31 @@
+{
+    "code": 200,
+    "message": "success",
+    "data": {
+        "product": {
+            "id": "42",
+            "store": {
+                "id": "3",
+                "name": "CovatTuyetNguyen"
+            },
+            "category": {
+                "id": "8",
+                "name": "C\u1ed5 v\u1eadt"
+            },
+            "name": "\u1ea4m Con Voi Th\u1eddi Tr\u1ea7n TK 13-14",
+            "code": "77_1",
+            "codeParent": "77_1",
+            "image": "http:\/\/arcatalog.vn\/3dart\/admin\/runtime\/uploads\/tn\/tn_product\/530cb2741b8e2c3cf298e843489c2967.jpg",
+            "price": "0",
+            "color": "0",
+            "size": "\u0110ang c\u1eadp nh\u1eadt.",
+            "unit": null,
+            "stock": "2",
+            "year_issued": "Th\u1eddi Tr\u1ea7n TK 13-14",
+            "feature": "\u0110ang c\u1eadp nh\u1eadt.",
+            "description": "<p>http:\/\/3dartvn.com\/submission\/3d_demo\/CoVatTuyetNguyen\/TNg77_Amvoi\/index.html<\/p>",
+            "total_sell": null,
+            "num_favorite": 4
+        }
+    }
+}

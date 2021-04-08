@@ -30,17 +30,21 @@ export default {
 	},
 	methods: {
 		async fetch() {
-			let res = await this.$store.dispatch("HOME_PAGE_LIST");
+
+			await this.$store.dispatch("HOME_PAGE_LIST").then((res) => {
 			this.introduce = res.obj_list[0].text;
 			if (res) {
-				console.log(res.obj_list[0].id);
+				// console.log(res.obj_list[0].id);
 				let id = res.obj_list[0].id;
 				this.getdetail(id);
 			}
+			});
+
 		},
 		async getdetail(id) {
-			let res = await this.$store.dispatch("HOME_PAGE_DETAIL", id);
+			await this.$store.dispatch("HOME_PAGE_DETAIL", id).then((res) => {
 			this.detail = res.homepage.images;
+			});
 		},
 	},
 };
