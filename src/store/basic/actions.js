@@ -87,7 +87,7 @@ export default {
 
     async PRODUCT_LIST({ commit }, data) {
         try {
-            let response = await getDataDetail(`product_list/${data}/?store/3`);
+            let response = await getDataDetail(`product_list/${data.page}/?store=3&category=${data.catid}`);
             return response;
         } catch (error) {
             console.log(console.error);

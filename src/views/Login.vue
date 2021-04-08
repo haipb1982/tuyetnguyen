@@ -113,22 +113,13 @@ export default {
             localStorage.setItem("isAuth", true);
             localStorage.setItem("token", res.token);
             localStorage.setItem("member", res.member);
+            localStorage.setItem("username", res.member.username);
             this.$router.push("/yeuthich");
+            location.reload();
           } else {
             alert("Login failed!");
           }
         });
-
-        // if (res.errors) {
-        //   // console.log('Login FAILED!')
-        //   alert("Login failed!");
-        // } else {
-        //   this.$emit("authenticated", true);
-        //   this.$router.replace({ name: "secure" });
-        //   localStorage.setItem("token", response.data.token);
-        //   localStorage.setItem("member", response.data.member);
-        //   this.$router.push("/yeuthich");
-        // }
       }
     },
   },

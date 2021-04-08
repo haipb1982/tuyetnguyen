@@ -11,25 +11,25 @@
           <div class="nav">
             <ul class="nav-list">
               <li class="nav-item">
-                <router-link to="/gioithieu" class="nav-link"
+                <router-link to="/gioithieu" class="nav-link" v-bind:class="{ active: isActive('gioithieu')}"
                   >GIỚI THIỆU</router-link
                 >
               </li>
               <li class="nav-item">
-                <router-link to="/bosuutap" class="nav-link"
+                <router-link to="/bosuutap" class="nav-link" v-bind:class="{ active: isActive('bosuutap')}"
                   >BỘ SƯU TẬP</router-link
                 >
               </li>
               <li class="nav-item">
-                <router-link to="/yeuthich" class="nav-link"
+                <router-link to="/yeuthich" class="nav-link" v-bind:class="{ active: isActive('yeuthich')}"
                   >CỔ VẬT YÊU THÍCH</router-link
                 >
               </li>
               <li class="nav-item">
-                <router-link to="/account" class="nav-link active" v-if="this.isAuth"
+                <router-link to="/taikhoan" class="nav-link" v-if="this.isAuth" v-bind:class="{ active: isActive('taikhoan')}"
                   >tài khoản</router-link
                 >
-				<router-link to="/login" class="nav-link active" v-else
+				<router-link to="/dangnhap" class="nav-link" v-bind:class="{ active: isActive('dangnhap')}" v-else
                   >đăng nhập</router-link
                 >
               </li>
@@ -51,6 +51,12 @@ export default {
   },
   mounted(){
 	  this.isAuth = localStorage.getItem("isAuth")
+  },
+  methods:{
+    isActive(menu){
+      // alert(this.$route.name )
+      return menu == this.$route.name;
+    },
   }
 };
 </script>

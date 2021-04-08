@@ -12,7 +12,7 @@
                 :key="idx"
               >
                 <router-link
-                  :to="{ name: 'details', params: { id: product.id } }"
+                  :to="{ name: 'chitiet', params: { id: product.id } }"
                 >
                   <div class="product-item">
                     <div class="product-image">
@@ -56,14 +56,15 @@ export default {
   },
   created() {
     if (localStorage.getItem("isAuth")) this.fetch();
-    else this.$router.push("/login");
+    else this.$router.push("/dangnhap");
   },
   methods: {
     async fetch() {
       let page = this.page;
-      let res = await this.$store.dispatch("FAVORITE_LIST", page);
-      console.log(res);
+      await this.$store.dispatch("FAVORITE_LIST", page).then((res) => {
+      // console.log(res);
       this.product_list = res.product_list;
+      })
     },
 
     async removeFavorite(id) {
