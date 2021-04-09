@@ -31,6 +31,7 @@ const routes = [{
 
     {
         path: "/bosuutap",
+        // alias: ['/bosuutap/:id', '/bosuutap/:id/:p/'],
         name: "bosuutap",
         component: Collection,
     },
@@ -73,6 +74,7 @@ const routes = [{
 
 const router = new VueRouter({
     mode: "history",
+    base: "./",
     routes
 });
 
