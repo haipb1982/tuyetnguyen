@@ -14,7 +14,7 @@
             v-bind:class="{ show: isActive }"
             v-click-outside="hide"
           >
-            <i class="fas fa-bars"></i>
+            <i class="fa fa-bars" aria-hidden="true"></i>
           </button>
           <div class="nav" v-bind:class="{ show: isActive }">
             <ul class="nav-list">
