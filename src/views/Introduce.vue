@@ -50,41 +50,71 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.banner {
+	&-box {
+		position: relative;
+	}
 
-.banner-box {
-  position: relative;
+	&-item {
+		position: relative;
+
+		img {
+			position: relative;
+			z-index: 1;
+		}
+		.content {
+			padding: 32px 30px;
+			position: absolute;
+			right: 20px;
+			bottom: 20px;
+			z-index: 2;
+			border-radius: 17px;
+			background-color: #eab875;
+			color: #fff;
+			max-width: 70%;
+			font-size: 14px;
+			text-align: justify;
+		}
+
+		.content p {
+			margin-bottom: 10px;
+		}
+
+		.content p:nth-last-child(1) {
+			margin-bottom: 0;
+		}
+	}
 }
-
-.banner-item {
-  position: relative;
+@media (max-width: 991px) {
+	.banner {
+		.container{
+			padding: 0;
+		}
+	}
 }
+@media (max-width: 767px) {
+.banner {
+		.container{
+			padding: 0;
+		}
+		&-item {
+			position: relative;
 
-.banner-item img {
-  position: relative;
-  z-index: 1;
+			img {
+				position: relative;
+				z-index: 1;
+			}
+
+			.content {
+				padding: 12px 20px;
+				position: relative;
+				right: 0;
+				bottom: 0;
+				border-radius: 0;
+				max-width: 100%;
+			}
+		}
+	}
 }
-
-.banner-item .content {
-  padding: 32px 30px;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  z-index: 2;
-  border-radius: 17px;
-  background-color: #eab875;
-  color: #fff;
-  max-width: 70%;
-  font-size: 14px;
-  text-align: justify;
-}
-
-.banner-item .content p {
-  margin-bottom: 10px;
-}
-
-.banner-item .content p:nth-last-child(1) {
-  margin-bottom: 0;
-}
-
 </style>

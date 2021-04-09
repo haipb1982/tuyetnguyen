@@ -22,7 +22,7 @@ export default {
 
 <style>
 .spe {
-	margin: 20px auto;
+	margin: 20px auto 10px;
 	height: 2px;
 	background: #e9c993;
 	background: -webkit-gradient(

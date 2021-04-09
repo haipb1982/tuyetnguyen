@@ -6,8 +6,7 @@
 export default {
   mounted(){
 	 localStorage.clear();
-   this.$router.push("/");
-   location.reload();
+   this.$router.push("/");location.reload();
   }
 };
 </script>

@@ -2,30 +2,34 @@
   <div class="App">
     <Header />
     <router-view />
-    <!-- <atom-spinner
-      :animation-duration="1000"
-      :size="100"
-      :color="'#E9B975'"
-      style="margin: auto; padding: 20px"
-    /> -->
+    <atom-spinner
+          :animation-duration="1000"
+          :size="100"
+          :color="'#E9B975'"
+          style="margin:auto;padding:20px"
+     />
     <Footer />
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from "vuex";
+import { mapActions, mapGetters, mapState } from 'vuex';
 import Header from "./components/Common/Header";
 import Footer from "./components/Common/Footer";
-import { AtomSpinner } from "epic-spinners";
-
+import {AtomSpinner} from 'epic-spinners'
+  
 export default {
   name: "App",
   components: {
     Header,
     Footer,
-    AtomSpinner,
+    AtomSpinner
   },
-    
+  computed: {
+    ...mapState({
+      loading: state => state.status === 'loading'
+    })
+  },
 };
 </script>
 

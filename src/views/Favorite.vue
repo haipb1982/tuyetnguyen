@@ -33,8 +33,7 @@
                 </router-link>
                 <div class="actions">
                   <a href="#" @click.prevent="removeFavorite(product.id)"
-                    ><i class="fa fa-trash-o" aria-hidden="true"></i
-                  ></a>
+                    ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                 </div>
               </div>
             </div>
@@ -59,7 +58,7 @@ export default {
     else this.$router.push("/dangnhap");
   },
   methods: {
-    async fetch() {
+     async fetch() {
       let page = this.page;
       await this.$store.dispatch("FAVORITE_LIST", page).then((res) => {
       // console.log(res);
@@ -75,7 +74,7 @@ export default {
         console.log(res);
         if (res) {
           alert("Removed successful!");
-          this.fetch();
+		  this.fetch();
         } else {
           alert("Removed failed!");
         }

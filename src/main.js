@@ -8,11 +8,9 @@ import store from "./store/index";
 
 Vue.use(Vuex)
 
-Vue.prototype.$appStatus = 'loading';
-
 Vue.use(ElementUI);
 new Vue({
-    router,
-    store,
-    render: h => h(App),
+  router,
+  store,
+  render: h => h(App),
 }).$mount('#app')
