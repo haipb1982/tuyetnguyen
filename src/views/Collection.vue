@@ -48,6 +48,7 @@
 
 <script>
 import { mapActions, mapGetters, mapState } from "vuex";
+import { asyncLoading } from "vuejs-loading-plugin";
 
 export default {
   data() {
@@ -66,7 +67,11 @@ export default {
 
     // alert("page:" + this.data.page + "-" + "id:" + this.data.catid);
 
-    this.fetch(this.data);
+    asyncLoading(this.fetch(this.data))
+      .then()
+      .catch();
+
+    // this.fetch(this.data);
   },
   methods: {
     async fetch(_data) {

@@ -37,7 +37,7 @@
                 <router-link to="/taikhoan" class="nav-link" v-bind:class="{ active: isActiveMenu('taikhoan') }" v-if="this.isAuth"
                   >tài khoản</router-link
                 >
-                <router-link to="/login" class="nav-link"  v-bind:class="{ active: isActiveMenu('login') }" v-else
+                <router-link to="/dangnhap" class="nav-link"  v-bind:class="{ active: isActiveMenu('dangnhap') }" v-else
                   >đăng nhập</router-link
                 >
               </li>

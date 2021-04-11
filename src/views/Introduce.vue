@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { asyncLoading } from "vuejs-loading-plugin";
+
 export default {
 	data() {
 		return {
@@ -26,7 +28,9 @@ export default {
 		};
 	},
 	created() {
-		this.fetch();
+		asyncLoading(this.fetch())
+      .then()
+      .catch();
 	},
 	methods: {
 		async fetch() {

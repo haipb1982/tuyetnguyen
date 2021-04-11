@@ -19,9 +19,9 @@
                       <img :src="product.image" />
                     </div>
                     <div class="product-info">
-                      <button class="btn btn-wishlist">
-                        <i class="fas fa-heart"></i>
-                      </button>
+                      
+                      <a class="btn btn-wishlist" href="#" @click.prevent="removeFavorite(product.id)"
+                    ><i class="fa fa-heart" aria-hidden="true"></i></a>
                       <a
                         href="#"
                         class="product-title"
@@ -31,10 +31,10 @@
                     </div>
                   </div>
                 </router-link>
-                <div class="actions">
+                <!-- <div class="actions">
                   <a href="#" @click.prevent="removeFavorite(product.id)"
-                    ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                </div>
+                    ><i class="fa fa-heart" aria-hidden="true"></i></a>
+                </div> -->
               </div>
             </div>
           </div>
@@ -45,16 +45,23 @@
 </template>
 
 <script>
+import { asyncLoading } from "vuejs-loading-plugin";
+
 export default {
   data() {
     return {
-      product_list: null,
-      productDetail: null,
+      product_list: {
+
+      },
       page: 1,
     };
   },
   created() {
-    if (localStorage.getItem("isAuth")) this.fetch();
+    if (localStorage.getItem("isAuth")) 
+    asyncLoading(this.fetch())
+      .then()
+      .catch();
+    
     else this.$router.push("/dangnhap");
   },
   methods: {

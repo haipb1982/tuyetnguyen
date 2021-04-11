@@ -14,10 +14,10 @@
             thích</router-link
           >
         </li>
-        <!-- <li><span class="nav-link"><i class="fas fa-bell"></i> Thông báo</span></li> -->
+        <!-- <li><span class="nav-link"><i class="fa fa-bell"></i> Thông báo</span></li> -->
         <li>
           <router-link to="/dangxuat" class="nav-link"
-            ><i class="fas fa-sign-out-alt"></i> Đăng xuất</router-link
+            ><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</router-link
           >
         </li>
       </ul>

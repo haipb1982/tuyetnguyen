@@ -3,7 +3,7 @@
       <div class="container">
         <div class="account-box">
           <button class="btn btn-close">
-            <i class="fas fa-times"></i>
+            <i class="fa fa-times"></i>
           </button>
           <form action="" class="register-form account-form">
             <h3 class="title-form">Đăng ký</h3>

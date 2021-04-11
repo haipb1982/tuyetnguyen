@@ -2,7 +2,7 @@
 <div>
     <hr>
 
-    <div>Footer here</div>
+    <div>© 2021 Copyright by Tuyết Nguyễn </div>
     
 </div>
 </template>
