@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { asyncLoading } from "vuejs-loading-plugin";
+
 export default {
   data() {
     return {
@@ -33,10 +35,20 @@ export default {
     };
   },
   created() {
-    this.userName = localStorage.getItem("username")
+    asyncLoading(this.fetch()).then((res) =>{
+      this.userName = res
+    })
+    // this.userName = localStorage.getItem("username")
+    //   ? localStorage.getItem("username")
+    //   : "User name";
+  },
+  methods:{
+    async fetch(){
+      return await localStorage.getItem("username")
       ? localStorage.getItem("username")
       : "User name";
-  },
+    }
+  }
 };
 </script>
 

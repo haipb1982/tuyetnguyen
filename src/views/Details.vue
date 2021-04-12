@@ -67,7 +67,7 @@ export default {
     async fetch(id) {
       // alert(id);
       await this.$store.dispatch("PRODUCT_DETAIL", id).then((res) => {
-        console.log(res);
+        // console.log(res);
         this.productDetail = res;
       });
     },
@@ -76,11 +76,14 @@ export default {
       data.append("product", id);
 
       await this.$store.dispatch("ADD_FAVORITE", data).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res) {
-          alert("Successful!");
+          alert("Yêu thích thành công!");
         } else {
-          alert("Add failed!");
+          alert("Xin vui lòng đăng nhập!");
+		//   localStorage.clear();
+          this.$router.push("/dangnhap");
+          location.reload();
         }
       });
     },

@@ -19,9 +19,12 @@
                       <img :src="product.image" />
                     </div>
                     <div class="product-info">
-                      
-                      <a class="btn btn-wishlist" href="#" @click.prevent="removeFavorite(product.id)"
-                    ><i class="fa fa-heart" aria-hidden="true"></i></a>
+                      <a
+                        class="btn btn-wishlist"
+                        href="#"
+                        @click.prevent="removeFavorite(product.id)"
+                        ><i class="fa fa-heart" aria-hidden="true"></i
+                      ></a>
                       <a
                         href="#"
                         class="product-title"
@@ -51,26 +54,34 @@ export default {
   data() {
     return {
       product_list: {
-
+        id: "",
+        image: "",
+        name: "",
       },
       page: 1,
     };
   },
   created() {
-    if (localStorage.getItem("isAuth")) 
-    asyncLoading(this.fetch())
-      .then()
-      .catch();
-    
+    if (localStorage.getItem("isAuth"))
+      asyncLoading(this.fetch())
+        .then()
+        .catch();
     else this.$router.push("/dangnhap");
   },
   methods: {
-     async fetch() {
+    async fetch() {
       let page = this.page;
-      await this.$store.dispatch("FAVORITE_LIST", page).then((res) => {
-      // console.log(res);
-      this.product_list = res.product_list;
-      })
+      await this.$store
+        .dispatch("FAVORITE_LIST", page)
+        .then((res) => {
+          // console.log(res);
+          this.product_list = res.product_list;
+        })
+        .catch((err) => {
+          // localStorage.clear();
+          this.$router.push("/dangnhap");
+          location.reload();
+        });
     },
 
     async removeFavorite(id) {
@@ -81,7 +92,7 @@ export default {
         console.log(res);
         if (res) {
           alert("Removed successful!");
-		  this.fetch();
+          this.fetch();
         } else {
           alert("Removed failed!");
         }
