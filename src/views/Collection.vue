@@ -310,6 +310,10 @@ export default {
   text-align: center;
 }
 
+.product-info{
+  min-height: 30px;
+}
+
 .product-page a {
   padding: 10px;
   margin: 10px;

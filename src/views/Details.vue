@@ -31,8 +31,12 @@
             ><i class="fa fa-heart-o" aria-hidden="true"></i
           ></a>
         </div>
-        <div class="content">
-          <p>{{ productDetail.product.feature }}</p>
+        <div class="content" style="text-align: left;">
+          <h4>Mô tả</h4>
+          <br>
+			    <p><b>Chất liệu:</b> {{ productDetail.product.feature }}</p>
+          <br>
+          <p><b>Niên đại:</b> {{ productDetail.product.year_issued }}</p>
           <!-- <p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p> -->
         </div>
       </div>
@@ -53,6 +57,7 @@ export default {
           image: "",
           description: "",
           feature: "",
+		  year_issued:"",
         },
       },
     };
