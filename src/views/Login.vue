@@ -87,6 +87,8 @@
 </template>
 
 <script>
+import { asyncLoading } from "vuejs-loading-plugin";
+
 export default {
   data() {
     return {
@@ -102,8 +104,17 @@ export default {
   },
   created() {
     // this.fetch();
+	// this.$loading(true);
+	// this.$Loading.loading = false;
+	asyncLoading(this.fetch());
   },
   methods: {
+
+	  async fetch(){
+		  return await localStorage.getItem('token');
+
+	  },
+
     async login() {
       // alert("login");
       if (this.input.username != "" && this.input.password != "") {
@@ -123,7 +134,8 @@ export default {
             localStorage.setItem("token", res.token);
             localStorage.setItem("member", res.member);
             localStorage.setItem("username", res.member.username);
-            this.$router.push("/yeuthich");
+            this.$router.push("/taikhoan");
+			location.reload();
           } else {
             alert("Login failed!");
           }
