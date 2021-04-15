@@ -14,10 +14,10 @@
             thích</router-link
           >
         </li>
-        <!-- <li><span class="nav-link"><i class="fas fa-bell"></i> Thông báo</span></li> -->
+        <!-- <li><span class="nav-link"><i class="fa fa-bell"></i> Thông báo</span></li> -->
         <li>
           <router-link to="/dangxuat" class="nav-link"
-            ><i class="fas fa-sign-out-alt"></i> Đăng xuất</router-link
+            ><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</router-link
           >
         </li>
       </ul>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { asyncLoading } from "vuejs-loading-plugin";
+
 export default {
   data() {
     return {
@@ -33,10 +35,20 @@ export default {
     };
   },
   created() {
-    this.userName = localStorage.getItem("username")
+    asyncLoading(this.fetch()).then((res) =>{
+      this.userName = res
+    })
+    // this.userName = localStorage.getItem("username")
+    //   ? localStorage.getItem("username")
+    //   : "User name";
+  },
+  methods:{
+    async fetch(){
+      return await localStorage.getItem("username")
       ? localStorage.getItem("username")
       : "User name";
-  },
+    }
+  }
 };
 </script>
 
