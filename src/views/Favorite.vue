@@ -103,6 +103,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.collection{
+  min-height: calc(100vh - 82px - 192px);
+}
 .collection-box .nav-tab {
   display: -webkit-box;
   display: -webkit-flex;
@@ -269,7 +272,7 @@ export default {
     .product-title {
       line-height: 1.4;
       display: flex;
-      height: 38px;
+      min-height: 38px;
       justify-content: center;
     }
   }
@@ -300,6 +303,10 @@ export default {
       position: relative;
       .product-title {
         font-size: 13px;
+      }
+      .btn-wishlist{
+        top:-25px;
+        right: 8px;
       }
     }
   }
