@@ -33,10 +33,9 @@
         </div>
         <div class="content" style="text-align: left;">
           <h4>Mô tả</h4>
+			    <b>Chất liệu:</b> {{ productDetail.product.feature }}
           <br>
-			    <p><b>Chất liệu:</b> {{ productDetail.product.feature }}</p>
-          <br>
-          <p><b>Niên đại:</b> {{ productDetail.product.year_issued }}</p>
+          <b>Niên đại:</b> {{ productDetail.product.year_issued }}
           <!-- <p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p> -->
         </div>
       </div>

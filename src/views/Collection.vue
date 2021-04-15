@@ -311,7 +311,7 @@ export default {
 }
 
 .product-info{
-  min-height: 30px;
+  min-height: 90px !important;
 }
 
 .product-page a {
