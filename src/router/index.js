@@ -7,6 +7,7 @@ import Account from "../views/Account.vue";
 import Collection from "../views/Collection.vue";
 import Favorite from "../views/Favorite.vue";
 import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
 import Register from "../views/Register.vue";
 
 
@@ -19,36 +20,53 @@ const routes = [{
     },
     {
         path: "/gioithieu",
-        name: "introduce",
+        name: "gioithieu",
         component: Introduce,
     },
     {
-        path: "/account",
-        name: "account",
+        path: "/taikhoan",
+        name: "taikhoan",
         component: Account,
     },
+
     {
         path: "/bosuutap",
-        name: "collection",
+        // alias: ['/bosuutap/:id', '/bosuutap/:id/:p/'],
+        name: "bosuutap",
         component: Collection,
     },
     {
-        path: "/details/:id",
-        name: "details",
+        path: "/bosuutap/:id",
+        name: "bosuutap",
+        component: Collection,
+    },
+    {
+        path: "/bosuutap/:id/:p/",
+        name: "bosuutap",
+        component: Collection,
+    },
+    {
+        path: "/chitiet/:id",
+        name: "chitiet",
         component: Details,
     },
     {
         path: "/yeuthich",
-        name: "Favorite",
+        name: "yeuthich",
         component: Favorite,
     },
     {
-        path: "/login",
-        name: "Login",
+        path: "/dangnhap",
+        name: "dangnhap",
         component: Login,
     },
     {
-        path: "/dangki",
+        path: "/dangxuat",
+        name: "dangxuat",
+        component: Logout,
+    },
+    {
+        path: "/dangky",
         name: "Register",
         component: Register,
     },
@@ -56,6 +74,7 @@ const routes = [{
 
 const router = new VueRouter({
     mode: "history",
+    base: "./",
     routes
 });
 

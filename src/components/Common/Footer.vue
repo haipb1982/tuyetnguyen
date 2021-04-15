@@ -1,5 +1,10 @@
 <template>
-    <div>Footer here</div>
+<div>
+    <hr>
+
+    <div>© 2021 Copyright by Tuyết Nguyễn </div>
+    
+</div>
 </template>
 
 <script>

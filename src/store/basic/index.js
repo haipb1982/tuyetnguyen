@@ -4,13 +4,13 @@ import mutations from "./mutations.js";
 import getters from "./getters.js";
 
 export default {
-  state() {
-    return {
-     dataView:[
-     ]
-    };
-  },
-  actions,
-  mutations,
-  getters
+    state() {
+        return {
+            dataView: [],
+            loading: ''
+        };
+    },
+    actions,
+    mutations,
+    getters
 };

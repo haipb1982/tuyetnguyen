@@ -1,14 +1,16 @@
 <template>
   <div class="App">
-    <Header /><Menu />
+    <Header />
+
     <router-view />
+
     <Footer />
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState } from "vuex";
 import Header from "./components/Common/Header";
-import Menu from "./components/Common/Menu";
 import Footer from "./components/Common/Footer";
 
 export default {
@@ -16,11 +18,11 @@ export default {
   components: {
     Header,
     Footer,
-    Menu
   },
+
 };
 </script>
 
-<style >
+<style>
 @import "../src/assets/css/app.css";
 </style>
