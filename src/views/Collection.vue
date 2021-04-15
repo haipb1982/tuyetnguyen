@@ -91,8 +91,8 @@ export default {
       if (this.num_page > 1) {
         let i = 1;
         while (i <= this.num_page) {
-          html += `<a style="padding: 10px;margin: 10px;background-color: #c38e46;color: #fff;  border-radius: 5px;${
-            this.isActivePage(i) ? "background-color:brown;" : ""
+          html += `<a class="${
+            this.isActivePage(i) ? "selected" : ""
           }" href="/bosuutap/${this.data.catid}/${i}/">${i}</a>`;
           i++;
         }
@@ -246,6 +246,10 @@ export default {
   font-size: 14px;
   text-align: center;
 }
+
+.product-info{
+  min-height: 90px !important;
+}
 @media (max-width: 991px) {
   .collection-box {
     .nav-link {
@@ -288,6 +292,10 @@ export default {
       margin: 0 auto 15px;
     }
   }
+  
+.product-info{
+  min-height: 60px !important;
+}
   .collection .main-content {
     .product-col {
       flex: 0 0 50%;
@@ -310,18 +318,20 @@ export default {
   text-align: center;
 }
 
-.product-info{
-  min-height: 90px !important;
-}
 
 .product-page a {
-  padding: 10px;
-  margin: 10px;
-  background-color: #c38e46;
-  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: 5px;
+  background-color: #fff;
+  border: 1px solid #c38e46;
+  color: #c38e46;
   border-radius: 5px;
 }
 .selected {
-  background-color: brown;
+   background-color: #c38e46;
+  border: 1px solid #c38e46;
+  color: #fff;
 }
 </style>

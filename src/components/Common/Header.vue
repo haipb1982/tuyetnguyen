@@ -125,6 +125,7 @@ export default {
 }
 .header .logo {
   margin-right: 3rem;
+  max-width: 200px;
 }
 .btn-nav {
   display: none;
