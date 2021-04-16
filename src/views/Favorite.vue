@@ -103,6 +103,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.collection{
+  min-height: calc(100vh - 82px - 192px);
+}
 .collection-box .nav-tab {
   display: -webkit-box;
   display: -webkit-flex;
@@ -209,6 +212,7 @@ export default {
   padding: 20px 15px 10px;
   background-color: #eab875;
   position: relative;
+  min-height: 98px;
 }
 
 .collection .main-content .product-info .btn-wishlist {
@@ -268,7 +272,7 @@ export default {
     .product-title {
       line-height: 1.4;
       display: flex;
-      height: 38px;
+      min-height: 38px;
       justify-content: center;
     }
   }
@@ -300,6 +304,10 @@ export default {
       .product-title {
         font-size: 13px;
       }
+      .btn-wishlist{
+        top:-25px;
+        right: 8px;
+      }
     }
   }
 }
@@ -309,14 +317,20 @@ export default {
   text-align: center;
 }
 
+
 .product-page a {
-  padding: 10px;
-  margin: 10px;
-  background-color: #c38e46;
-  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: 5px;
+  background-color: #fff;
+  border: 1px solid #c38e46;
+  color: #c38e46;
   border-radius: 5px;
 }
 .selected {
-  background-color: brown;
+   background-color: #c38e46;
+  border: 1px solid #c38e46;
+  color: #fff;
 }
 </style>

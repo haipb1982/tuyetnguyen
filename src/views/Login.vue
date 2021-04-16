@@ -8,7 +8,7 @@
         <div class="login-form account-form">
           <div class="form-group">
             <div class="form-icon">
-              <i class="fa fa-user"></i>
+              <i class="fas fa-user"></i>
             </div>
             <div class="form-input">
               <input
@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <div class="form-icon">
-              <i class="fa fa-lock"></i>
+              <i class="fas fa-lock"></i>
             </div>
             <div class="form-input">
               <input
@@ -157,14 +157,7 @@ export default {
 
 .login-head {
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .login .form-input {
