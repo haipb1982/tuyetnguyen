@@ -983,14 +983,21 @@ input.checkbox[type="radio"]:checked:after {
 }
 
 .account {
+	display: flex;
 	padding-top: 82px;
-	height: calc(100vh - 82px);
+	justify-content: center;
 }
 
 .account-form {
 	width: 100%;
 }
-
+.wishlist .title-section {
+	padding-top: 40px;
+}
+.account,
+.wishlist,.collection,.banner {
+	min-height: calc(100vh - 82px - 172px);
+}
 .account-box {
 	width: 540px;
 	margin: 0 auto;
@@ -1046,10 +1053,10 @@ input.checkbox[type="radio"]:checked:after {
 	font-size: 16px;
 	text-align: left;
 }
-.product-page{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.product-page {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 .product-page a {
 	width: 40px;

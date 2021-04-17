@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Introduce />
+		<Introduce :class="introduceHome"/>
 
 		<div class="spe container"></div>
 
@@ -13,6 +13,11 @@ import Introduce from "./Introduce";
 import Collection from "./Collection";
 
 export default {
+	data() {
+    return {
+      introduceHome: 'introduceHome',
+    };
+  },
 	components: {
 		Introduce,
 		Collection,
@@ -21,6 +26,9 @@ export default {
 </script>
 
 <style>
+.introduceHome{
+	min-height: unset;
+}
 .spe {
 	margin: 20px auto 10px;
 	height: 2px;
