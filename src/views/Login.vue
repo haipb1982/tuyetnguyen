@@ -8,7 +8,7 @@
         <div class="login-form account-form">
           <div class="form-group">
             <div class="form-icon">
-              <i class="fas fa-user"></i>
+              <i class="fa fa-user"></i>
             </div>
             <div class="form-input">
               <input
@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <div class="form-icon">
-              <i class="fas fa-lock"></i>
+              <i class="fa fa-lock"></i>
             </div>
             <div class="form-input">
               <input
