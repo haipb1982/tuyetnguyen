@@ -25,9 +25,11 @@
           ></iframe>
         </div>
         <div class="actions">
-          <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+          <!-- <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
 
-          <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
+          <!-- <a class="heartlink" href="#" @click.prevent="addFavorite(productDetail.product.id)"
+            >♡</a> -->
+            <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
             ><i class="fa fa-heart-o" aria-hidden="true"></i
           ></a>
         </div>
@@ -96,6 +98,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.heartlink{
+  font-size: 40px;
+}
 .product-detail .breadcrumb {
   position: relative;
   margin-top: 40px;
@@ -179,7 +184,7 @@ export default {
   padding: 10px;
   background: #d99751;
   border-radius: 10px;
-  width: 120px;
+  width: 60px;
   text-align: center;
   font-size: 20px;
   color: #fff;
