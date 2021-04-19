@@ -2,7 +2,7 @@
   <div class="App">
     <Header />
 
-    <router-view />
+    <router-view class="mainview" />
 
     <Footer />
   </div>
@@ -25,4 +25,9 @@ export default {
 
 <style>
 @import "../src/assets/css/app.css";
+
+.mainview{
+  min-height: 600px;
+}
+
 </style>
