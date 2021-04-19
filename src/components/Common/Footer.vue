@@ -34,7 +34,7 @@ export default {};
 	justify-content: center;
 }
 .footer {
-	margin-top: 50px;
+	margin-top: 150px;
 	padding: 25px 0;
 	background-image: url(../../assets/bg-header.jpg);
 	background-size: 100% 100%;
