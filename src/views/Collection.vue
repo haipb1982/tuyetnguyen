@@ -6,10 +6,10 @@
         <div class="collection-content">
           <ul class="nav-tab">
             <li class="nav-item" v-bind:class="{ active: isActiveCat(8) }">
-              <a href="/bosuutap/8" class="nav-link">cổ vật</a>
+              <a href="/bosuutap/8" class="nav-link" alt="cổ vật">cổ vật</a>
             </li>
             <li class="nav-item" v-bind:class="{ active: isActiveCat(9) }">
-              <a href="/bosuutap/9" class="nav-link">cổ phục</a>
+              <a href="/bosuutap/9" class="nav-link" alt="cổ phục">cổ phục</a>
             </li>
           </ul>
           <div class="main-content">
@@ -24,14 +24,15 @@
                 >
                   <div class="product-item">
                     <div class="product-image">
-                      <img :src="product.image" />
+                      <img :src="product.image" :title="product.name" />
                     </div>
                     <div class="product-info">
                       <a
-                        href="#"
+                        href="#" :alt="product.name"
                         class="product-title"
                         :v-bind="product.image"
-                        >{{ product.name }}</a
+                        >{{ product.name.length > 40 ? 
+                         product.name.substring(0,37) + '...' : product.name }}</a
                       >
                     </div>
                   </div>
