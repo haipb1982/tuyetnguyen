@@ -62,11 +62,16 @@ export default {
     };
   },
   created() {
-    if (localStorage.getItem("isAuth"))
+    
+    if (localStorage.getItem("isAuth")){
+      
       asyncLoading(this.fetch())
         .then()
         .catch();
-    else this.$router.push("/dangnhap");
+    }
+    else {
+      
+      this.$router.push("/dangnhap");}
   },
   methods: {
     async fetch() {
@@ -74,13 +79,14 @@ export default {
       await this.$store
         .dispatch("FAVORITE_LIST", page)
         .then((res) => {
-          // console.log(res);
+          console.log(res);
           this.product_list = res.product_list;
         })
         .catch((err) => {
+          // console.log(err)
           // localStorage.clear();
-          this.$router.push("/dangnhap");
-          location.reload();
+          // this.$router.push("/dangnhap");
+          // location.reload();
         });
     },
 

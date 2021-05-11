@@ -86,10 +86,10 @@ export default {
         if (res) {
           alert("Yêu thích thành công!");
         } else {
-          alert("Xin vui lòng đăng nhập!");
+          // alert("Xin vui lòng đăng nhập!");
 		//   localStorage.clear();
-          this.$router.push("/dangnhap");
-          location.reload();
+          // this.$router.push("/dangnhap");
+          // location.reload();
         }
       });
     },

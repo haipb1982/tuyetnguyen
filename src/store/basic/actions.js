@@ -1,4 +1,4 @@
-import { getData, postData, getDataDetail } from "../../api/Service";
+import { getData, getDataWithHeader, postData, postDataWithHeader, getDataDetail, getDataDetailWithHeader } from "../../api/Service";
 
 export default {
 
@@ -96,7 +96,7 @@ export default {
 
     async ADD_FAVORITE({ commit }, data) {
         try {
-            let response = await postData("add_favorite_product", data);
+            let response = await postDataWithHeader("add_favorite_product", data);
             return response;
         } catch (error) {
             console.log(console.error);
@@ -114,7 +114,7 @@ export default {
 
     async FAVORITE_LIST({ commit }, data) {
         try {
-            let response = await getData(`list_favorite_product`);
+            let response = await getDataWithHeader(`list_favorite_product`);
             return response;
         } catch (error) {
             console.log(console.error);
