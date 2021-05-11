@@ -76,6 +76,7 @@ export default {};
 	.footer {
 		background-size: cover;
 		background-position: center;
+		background-image: url(../../assets/bg-header-mobile.jpeg);
 		font-size: 14px;
 		padding: 15px 0;
 		.logo-footer {
@@ -97,4 +98,5 @@ export default {};
 		}
 	}
 }
+
 </style>

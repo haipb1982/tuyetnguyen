@@ -27,7 +27,7 @@ export default {
 @import "../src/assets/css/app.css";
 
 .mainview{
-  min-height: 600px;
+  min-height: calc(100vh - 250px);
 }
 
 </style>

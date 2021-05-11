@@ -31,8 +31,8 @@
                         href="#" :alt="product.name"
                         class="product-title"
                         :v-bind="product.image"
-                        >{{ product.name.length > 40 ? 
-                         product.name.substring(0,37) + '...' : product.name }}</a
+                        >{{ product.name.length > 43 ? 
+                         product.name.substring(0,40) + '...' : product.name }}</a
                       >
                     </div>
                   </div>
@@ -249,7 +249,7 @@ export default {
 }
 
 .product-info{
-  min-height: 90px !important;
+  min-height: 80px !important;
 }
 @media (max-width: 991px) {
   .collection-box {
@@ -295,7 +295,7 @@ export default {
   }
   
 .product-info{
-  min-height: 60px !important;
+  min-height: 80px !important;
 }
   .collection .main-content {
     .product-col {

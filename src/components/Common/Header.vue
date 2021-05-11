@@ -242,6 +242,7 @@ export default {
   }
   .header {
     height: 60px;
+background-image: url(../../assets/bg-header-mobile.jpeg);
     .logo {
       max-width: 120px;
       margin: 0 auto;
@@ -282,4 +283,5 @@ export default {
     font-size: 14px;
   }
 }
+
 </style>
