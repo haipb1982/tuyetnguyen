@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// let BaseUrl = "https://cor-anywhere.herokuapp.com/http://arcatalog.vn/3dart/admin/tn/api/";
+let ProxyUrl = "https://cor-anywhere.herokuapp.com/http://arcatalog.vn/3dart/admin/tn/api/";
 
 let BaseUrl = "http://arcatalog.vn/3dart/admin/tn/api/";
 
@@ -27,7 +27,7 @@ const getData = async(url) => {
 
 const getDataWithHeader = async(url) => {
     try {
-        let res = await axios.get(`${BaseUrl}${url}`, {
+        let res = await axios.get(`${ProxyUrl}${url}`, {
             headers: headers
         });
         return res.data.data;
@@ -48,7 +48,7 @@ const getDataDetail = async(url, query, params) => {
 
 const getDataDetailWithHeader = async(url, query, params) => {
     try {
-        let res = await axios.get(`${BaseUrl}${url}/${query}`, {
+        let res = await axios.get(`${ProxyUrl}${url}/${query}`, {
             headers: headers
         });
         return res.data.data;
@@ -70,7 +70,7 @@ const postData = async(url, params) => {
 
 const postDataWithHeader = async(url, params) => {
     try {
-        let res = await axios.post(`${BaseUrl}${url}`, params, {
+        let res = await axios.post(`${ProxyUrl}${url}`, params, {
             headers: headers
         });
         return res.data.data;

@@ -84,9 +84,10 @@ export default {
         })
         .catch((err) => {
           // console.log(err)
-          // localStorage.clear();
-          // this.$router.push("/dangnhap");
-          // location.reload();
+          alert("Xin vui lòng đăng nhập!");
+          localStorage.clear();
+          this.$router.push("/dangnhap");
+          location.reload();
         });
     },
 

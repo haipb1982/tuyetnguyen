@@ -21,7 +21,7 @@
             :src="
               productDetail.product.description.replace(/(<([^>]+)>)/gi, '')
             "
-            allow="geolocation; microphone;camera;midi;encrypted-media"
+            allow="geolocation; microphone;camera;midi;encrypted-media;fullscreen"
           ></iframe>
         </div>
         <div class="actions">
@@ -32,6 +32,7 @@
             <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
             ><i class="fa fa-heart-o" aria-hidden="true"></i
           ></a>
+          <!-- <a href='#' @click="iframeFullScreen()" >full screen</a> -->
         </div>
         <div class="content" style="text-align: left;">
           <h4>Mô tả</h4>
@@ -70,7 +71,11 @@ export default {
     // this.fetch(this.$route.params["id"]);
   },
   methods: {
-    async fetch(id) {
+    iframeFullScreen(){
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+
+    },
+async fetch(id) {
       // alert(id);
       await this.$store.dispatch("PRODUCT_DETAIL", id).then((res) => {
         // console.log(res);
@@ -86,10 +91,10 @@ export default {
         if (res) {
           alert("Yêu thích thành công!");
         } else {
-          // alert("Xin vui lòng đăng nhập!");
-		//   localStorage.clear();
-          // this.$router.push("/dangnhap");
-          // location.reload();
+          alert("Xin vui lòng đăng nhập!");
+		  localStorage.clear();
+          this.$router.push("/dangnhap");
+          location.reload();
         }
       });
     },
@@ -98,6 +103,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fullScreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .heartlink{
   font-size: 40px;
 }
