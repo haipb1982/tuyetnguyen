@@ -15,6 +15,7 @@
 
         <div class="content" style="margin: auto">
           <h5 class="title-block">THÔNG TIN CỔ VẬT:</h5>
+
           <iframe
             class="responsive-iframe"
             id="iframeTN"
@@ -24,20 +25,30 @@
             allow="geolocation; microphone;camera;midi;encrypted-media;fullscreen"
           ></iframe>
         </div>
+
+        
         <div class="actions">
           <!-- <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
 
           <!-- <a class="heartlink" href="#" @click.prevent="addFavorite(productDetail.product.id)"
             >♡</a> -->
-            <a href="#" @click.prevent="addFavorite(productDetail.product.id)"
+          <a href="#" @click.prevent="addFavorite(productDetail.product.id)" title="Add to Favorite"
             ><i class="fa fa-heart-o" aria-hidden="true"></i
           ></a>
-          <!-- <a href='#' @click="iframeFullScreen()" >full screen</a> -->
         </div>
-        <div class="content" style="text-align: left;">
+         <div class="actions" style="background-color:#fff">
+
+         </div>
+        <div class="actions">
+          <a class="fullScreenbtn" href="#" @click="iframeFullScreen()" title="Full Screen mode">
+            <i class="fa fa-window-maximize"></i>
+          </a>
+        </div>
+
+        <div class="content" style="text-align: left">
           <h4>Mô tả</h4>
-			    <b>Chất liệu:</b> {{ productDetail.product.feature }}
-          <br>
+          <b>Chất liệu:</b> {{ productDetail.product.feature }}
+          <br />
           <b>Niên đại:</b> {{ productDetail.product.year_issued }}
           <!-- <p>{{ productDetail.product.description.replace(/(<([^>]+)>)/gi, "")}}</p> -->
         </div>
@@ -53,29 +64,40 @@ export default {
   props: ["id"],
   data() {
     return {
+      fullScreen: true,
       productDetail: {
         product: {
           id: "",
           image: "",
           description: "",
           feature: "",
-		  year_issued:"",
+          year_issued: "",
         },
       },
     };
   },
   created() {
-    asyncLoading(this.fetch(this.$route.params["id"]))
-      .then()
-      .catch();
+    asyncLoading(this.fetch(this.$route.params["id"])).then().catch();
     // this.fetch(this.$route.params["id"]);
   },
   methods: {
-    iframeFullScreen(){
-    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    iframeFullScreen() {
+      // document.getElementsByTagName("iframe")[0].className = this.fullScreen ? "fullScreen" : "halfScreen";
+      // this.fullScreen =!this.fullScreen;
+      var elem = document.getElementsByTagName("iframe")[0];
+      console.log(elem);
 
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        /* IE11 */
+        elem.msRequestFullscreen();
+      }
     },
-async fetch(id) {
+    async fetch(id) {
       // alert(id);
       await this.$store.dispatch("PRODUCT_DETAIL", id).then((res) => {
         // console.log(res);
@@ -92,7 +114,7 @@ async fetch(id) {
           alert("Yêu thích thành công!");
         } else {
           alert("Xin vui lòng đăng nhập!");
-		  localStorage.clear();
+          localStorage.clear();
           this.$router.push("/dangnhap");
           location.reload();
         }
@@ -103,15 +125,27 @@ async fetch(id) {
 </script>
 
 <style lang="scss" scoped>
+.fullScreenbtn img {
+  width: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  z-index: 99;
+}
 .fullScreen {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.heartlink{
+.halfScreen {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+.heartlink {
   font-size: 40px;
 }
 .product-detail .breadcrumb {
@@ -191,7 +225,7 @@ async fetch(id) {
 }
 
 .actions {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 10px;
