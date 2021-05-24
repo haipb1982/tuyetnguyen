@@ -220,7 +220,7 @@ export default {
 
 .responsive-iframe {
   width: 100%;
-  height: 400px;
+  height: 50vh;
   border: none;
 }
 
@@ -266,5 +266,6 @@ export default {
   .feature {
     width: 100% !important;
   }
+
 }
 </style>
