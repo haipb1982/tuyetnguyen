@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let BaseUrl = "https://cor-anywhere.herokuapp.com/http://arcatalog.vn/3dart/admin/tn/api/";
+let BaseUrl = "https://arcatalog.vn/3dart/admin/tn/api/";
 
 const deviceid = Math.floor(Math.random() * (10000000000000 - 10000000 + 1) + 100000000);
 
